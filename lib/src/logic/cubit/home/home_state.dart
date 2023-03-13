@@ -87,7 +87,7 @@ extension HomeStateX on HomeState {
         isLoadMore: true);
   }
 
-  HomeState addNewResult(     Paging<UserInformation> nextPaging){
+  HomeState addNewResult(Paging<UserInformation> nextPaging){
     final newList = [...listUserInformation];
     final nextPagingList = nextPaging.data;
     if (nextPagingList != null) {

@@ -19,15 +19,18 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future getUserNextPage() async {
     try {
-      emit(state.loadingMore());
-     await Future.delayed(const Duration(seconds: 3));
-      emit(state.hideLoadingMore());
+      _showLoadingMore();
       final result = await userRepository.getUserByPage(state.page + 1);
+      _hideLoadingMore();
       emit(state.addNewResult(result));
     } catch (e) {
       emit(state.copyWith(appError: AppError.unknownError()));
     }
   }
+
+  void _showLoadingMore() => emit(state.loadingMore());
+
+  void _hideLoadingMore() => emit(state.hideLoadingMore());
 
   void switchDisplayType() {
     if (state.displayType == DisplayType.list) {
