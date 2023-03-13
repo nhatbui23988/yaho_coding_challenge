@@ -14,13 +14,12 @@ class UserInforGridItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric( vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             color: index % 2 != 0 ? kPrimaryLight : kLightSecondary,
             borderRadius: BorderRadius.circular(6)),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Align(
               alignment: Alignment.center,
@@ -46,27 +45,23 @@ class UserInforGridItemWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      userInformation.toName(),
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: kPrimaryText),
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(userInformation.email ?? '',
-                      style: const TextStyle(fontSize: 16, color: kPrimaryText))
-                ],
+            Flexible(
+              child: Text(
+                userInformation.toName(),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: kPrimaryText),
               ),
+            ),
+            const SizedBox(height: 4),
+            Flexible(
+              child: Text(userInformation.email ?? '',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 16, color: kPrimaryText)),
             )
           ],
         ));

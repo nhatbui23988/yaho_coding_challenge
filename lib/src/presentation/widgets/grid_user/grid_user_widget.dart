@@ -36,12 +36,13 @@ class _GridUserWidgetState extends State<GridUserWidget> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        padding: const EdgeInsets.only(top: 12),
+        padding: const EdgeInsets.only(top: 12, left: 8, right: 8),
         controller: widget.controller,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           crossAxisCount: 2,
+          childAspectRatio: 0.9
         ),
         itemCount: widget.listData.length,
         itemBuilder: (_, index) {
