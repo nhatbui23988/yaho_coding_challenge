@@ -14,7 +14,7 @@ class UserInforGridItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+        padding: const EdgeInsets.symmetric( horizontal: 8),
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             color: index % 2 != 0 ? kPrimaryLight : kLightSecondary,
@@ -24,7 +24,7 @@ class UserInforGridItemWidget extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: CachedNetworkImage(
                   imageUrl: userInformation.avatar ?? '',
                   height: 100,
